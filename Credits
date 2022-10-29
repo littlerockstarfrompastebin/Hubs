@@ -1,0 +1,7 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Credits", "DarkTheme")
+
+local CreditsTab = Window:NewTab("Credits")
+
+local CreditsSection = CreditsTab:NewSection("Made by nerdygerman#2181")
+local CreditsSection2 = CreditsTab:NewSection("With the help of vx#8841")
