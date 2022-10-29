@@ -1,0 +1,9 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Information", "DarkTheme")
+
+local InformationTab = Window:NewTab("Information")
+
+local InfoSection = InformationTab:NewSection("Player Name: "..player.Name)
+local InfoSection2 = InformationTab:NewSection("Player OS: Windows")
+local InfoSection3 = InformationTab:NewSection("Account Age: "..player.AccountAge)
+local InfoSection4 = InformationTab:NewSection("Account ID: "..player.UserId)
