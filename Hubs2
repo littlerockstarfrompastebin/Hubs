@@ -1,7 +1,9 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Hubs", "DarkTheme")
 
-local HubsSection = Window:NewTab("Hubs")
+local HubsTab = Window:NewTab("Hubs")
+
+local HubsSection = HubsTab:NewSection("Hubs")
 
 HubsSection:NewButton("Project Ligma remake", "the most OP thing in history, Private SS, Better than harked frfr", function()
     -- PL Update
