@@ -1,0 +1,89 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Miscellaneous", "DarkTheme")
+
+local MiscellaneousTab = Window:NewTab("Miscellaneous")
+
+local MiscellaneousSection = MiscellaneousTab:NewSection("Miscellaneous")
+
+MiscellaneousSection:NewButton("Chat Hack", "Good trolling chat script", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
+end)
+
+MiscellaneousSection:NewButton("Rejoin", "Rejoins Game", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/1gtVMUz3"))()
+end)
+
+MiscellaneousSection:NewButton("Serverhop", "Joins new server", function()
+local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
+module:Teleport(game.PlaceId)
+end)
+
+local TeleportSection = MiscellaneousTab:NewSection("Teleports, Type full name to work")
+
+TeleportSection:NewTextBox("Player User", "Teleports to the player u just typed above", function(txt)
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local pl2 = txt
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+task.wait()
+pl.CFrame = game.Players[pl2].Character.HumanoidRootPart.CFrame
+end)
+
+local LoopGotoSection = MiscellaneousTab:NewSection("Loop Goto")
+
+LoopGotoSection:NewTextBox("Player User", "Loop Teleports to the player u just typed above", function(txt)
+	local char = game:GetService("Players").LocalPlayer.Character
+local username = txt --put full player name here
+
+--loop goto:
+while task.wait() do
+  char.HumanoidRootPart.CFrame = workspace[username].HumanoidRootPart.CFrame
+end
+end)
+
+MiscellaneousSection:NewButton("Oof Spam", "Spams Oof Sound", function()
+    _G.enabled = true -- Re-execute to turn off
+    _G.speed = 110 -- Keep around 100 or it wont play
+    
+    -- Variables
+    local RunService = game:GetService("RunService");
+    local Players = game:GetService("Players");
+    local LocalPlayer = game:GetService("Players").LocalPlayer;
+    
+    local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
+    local Humanoid = Character:WaitForChild("Humanoid") or Character:FindFirstChildOfClass("Humanoid");
+    local HRP = Humanoid.RootPart or Humanoid:FindFirstChild("HumanoidRootPart")
+    
+    -- Check
+    if not Humanoid or not _G.enabled then
+       if Humanoid and Humanoid.Health <= 0 then
+           Humanoid:Destroy()
+       end
+       return
+    end
+    
+    -- Setting Up Humanoid
+    Humanoid:SetStateEnabled(Enum.HumanoidStateType.Dead, false)
+    Humanoid.BreakJointsOnDeath = false
+    Humanoid.RequiresNeck = false
+    
+    local con; con = RunService.Stepped:Connect(function()
+       if not Humanoid then return con:Disconnect() end
+       Humanoid:ChangeState(Enum.HumanoidStateType.Running)  -- Change state so not die
+    end)
+    
+    -- Infinite Death [literally 3 lines dont make it complicated]
+    LocalPlayer.Character = nil
+    LocalPlayer.Character = Character
+    task.wait(Players.RespawnTime + 0.1)
+    
+    -- Looping Death
+    while task.wait(1/_G.speed) do
+       Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+    end
+end)
+
+local UISection = MiscellaneousTab:NewSection("UI")
+
+UISection:NewKeybind("Toggle UI", "Toggles UI basically", Enum.KeyCode.LeftControl, function()
+	Library:ToggleUI()
+end)
