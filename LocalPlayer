@@ -1,0 +1,80 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Player", "DarkTheme")
+
+local PlayerTab = Window:NewTab("Player")
+
+local PlayerSection = PlayerTab:NewSection("LocalPlayer")
+
+PlayerSection:NewSlider("Walkspeed", "Increases ur Walkspeed", 10000, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("JumpPower", "Increases ur JumpPower", 10000, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewSlider("Time", "Changes time", 24, 12, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Lighting.TimeOfDay = s
+end)
+
+PlayerSection:NewSlider("Gravity", "Increases ur Gravity", 1000, 196.2, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Workspace.Gravity = s
+end)
+
+PlayerSection:NewSlider("Health", "Changes Health", 100, 1, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.Health = s
+end)
+
+PlayerSection:NewLabel("Textbox")
+
+PlayerSection:NewTextBox("Walkspeed", "Increases ur Walkspeed", function(txt)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
+end)
+
+PlayerSection:NewTextBox("JumpPower", "Increases ur JumpPower", function(txt)
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = txt
+end)
+
+PlayerSection:NewTextBox("Gravity", "Increases ur Gravity", function(txt)
+	game.Workspace.Gravity = txt
+end)
+
+PlayerSection:NewTextBox("Health", "Set ur Health (MAX 100)", function(txt)
+	game.Players.LocalPlayer.Character.Humanoid.Health = txt
+end)
+
+PlayerSection:NewTextBox("Time", "Set Time (Clientsided)", function(txt)
+	game.Lighting.TimeOfDay = txt
+end)
+
+PlayerSection:NewTextBox("Print message", "Prints message to notification", function(txt)
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "Notification";
+		Text = txt;
+		Duration = 12;
+	})
+end)
+
+PlayerSection:NewButton("Heal Up Quick", "Heals u up", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 125
+end)
+
+PlayerSection:NewButton("Reset Everything", "Resets Every Slider and textbox", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	game.Workspace.Gravity = 192.2
+	game.Players.LocalPlayer.Character.Humanoid.Health = 120
+	game.Lighting.TimeOfDay = 12
+end)
+
+PlayerSection:NewButton("Respawn", "Respawns Yourself", function()
+	local char = game.Players.LocalPlayer.Character
+	if char:FindFirstChildOfClass("Humanoid") then char:FindFirstChildOfClass("Humanoid"):ChangeState(15) end
+	char:ClearAllChildren()
+	local newChar = Instance.new("Model")
+	newChar.Parent = workspace
+	game.Players.LocalPlayer.Character = newChar
+	wait()
+	game.Players.LocalPlayer.Character = char
+	newChar:Destroy()
+end)
