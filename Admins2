@@ -4007,3 +4007,7 @@ function FEcheckDefault()
 end
 FEcheckDefault()
 end)
+
+AdminsSection:NewButton("FE Fates Admin", "Good Admin script with over alot of cmds", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+end)
