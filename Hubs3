@@ -396,37 +396,29 @@ end)
 HubsSection:NewButton("Ez Hub", "yessir ez hub with alot of features op", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/debug420/Ez-Industries-Launcher-Data/master/Launcher.lua'))()
 end)
+
+local HubsSection2 = HubsTab:NewSection("More Hubs")
  
-HubSection:NewButton("Universal Hub", "Fe scripts", function()
+HubsSection2:NewButton("Universal Hub", "Fe scripts", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script'))()
 end)
  
-HubSection:NewButton("FE Pendulum Hub", "even more fe scripts", function()
+HubsSection2:NewButton("FE Pendulum Hub", "even more fe scripts", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()
 end)
 
-HubsSection:NewButton("Domain X", "Hub with another multiple game support, VERY OP ;)", function()
+HubsSection2:NewButton("Domain X", "Hub with another multiple game support, VERY OP ;)", function()
     loadstring(game:HttpGet('https://shlex.dev/release/domainx/latest.lua',true))()
 end)
 
-HubsSection:NewButton("Sussy Hub", "Very sus with alot of sussy shit", function()
+HubsSection2:NewButton("Sussy Hub", "Very sus with alot of sussy shit", function()
     loadstring(game:HttpGet(('https://gist.githubusercontent.com/Nilrogram/8b0c8bd710be142f383c71f79279752c/raw/e4fb01a7de7cd498bb53270d2ad191dfab268a88/FE%2520SussyHub'),true))()
 end)
 
-HubsSection:NewButton("FE Hat Hub", "very old hat hub", function()
+HubsSection2:NewButton("FE Hat Hub", "very old hat hub", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/SLPrghST'))()
 end)
 
-HubsSection:NewButton("FE Hat Hub Paid", "very old hat hub", function()
-	game:GetService("StarterGui"):SetCore("SendNotification", {
-		Title = "FE Hat Hub Paid";
-		Text = "Copied hats link to your clipboard!";
-		Duration = 16;
-	})
-	setclipboard("https://pastebin.com/raw/EzrGr8w2")
-    loadstring(game:HttpGet("https://pastebin.com/raw/6tshcUd2"))()
-end)
-
-HubsSection:NewButton("FE Terminator Hub", "terminator hub for any game", function()
+HubsSection2:NewButton("FE Terminator Hub", "terminator hub for any game", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/VExusWZ8'))()
 end)
